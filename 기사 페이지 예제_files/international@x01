@@ -1,0 +1,8 @@
+document.write ('<script src=');
+document.write ("'");
+document.write ('//img.mobon.net/js/common/HawkEyesMaker.js');
+document.write ("'");
+document.write ('></script>\n');
+document.write ('<script>\n');
+document.write ('	new HawkEyes({"type":"banner","responsive":"N","platform":"W","scriptCode":"739629","frameCode":"69","width":"160","height":"600","settings":{"cntad":"1","cntsr":"1"}});\n');
+document.write ('</script>');

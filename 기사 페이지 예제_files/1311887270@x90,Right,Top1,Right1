@@ -1,0 +1,23 @@
+function OAS_RICH(position) {
+if (position == 'Right') {
+document.write ('<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2597232724255931"\n');
+document.write ('     crossorigin="anonymous"></script>\n');
+document.write ('<!-- PC_Aside_DA1 -->\n');
+document.write ('<ins class="adsbygoogle"\n');
+document.write ('     style="display:inline-block;width:300px;height:250px"\n');
+document.write ('     data-ad-client="ca-pub-2597232724255931"\n');
+document.write ('     data-ad-slot="6307350025"></ins>\n');
+document.write ('<script>\n');
+document.write ('     (adsbygoogle = window.adsbygoogle || []).push({});\n');
+document.write ('</script>');
+}
+if (position == 'Right1') {
+document.write ('<script src="https://media.adpnut.com/cgi-bin/PelicanC.dll?impr?pageid=05KJ&out=script"></script>');
+}
+if (position == 'Top1') {
+document.write ('<a href="https://a1.asiae.co.kr/RealMedia/ads/click_lx.ads/www.asiae.co.kr/international/799062569/Top1/default/empty.gif/792b334947576a52364f6341416d7533" target="_top"><img src="https://a1.asiae.co.kr/RealMedia/ads/Creatives/default/empty.gif"  width="1" height="1" alt="" BORDER=0 border="0"></a>');
+}
+if (position == 'x90') {
+document.write ('<a href="https://a1.asiae.co.kr/RealMedia/ads/click_lx.ads/www.asiae.co.kr/international/543704721/x90/default/empty.gif/792b334947576a52364f6341416d7533" target="_top"><img src="https://a1.asiae.co.kr/RealMedia/ads/Creatives/default/empty.gif"  width="1" height="1" alt="" BORDER=0 border="0"></a>');
+}
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- saved from url=(0146)https://www.mediacategory.com/servlet/adBanner?from=https%3A//newsstand.naver.com/include/page/277.html&s=58021&iwh=160_600&igb=69&cntad=1&cntsr=1 -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+    <title>criteoad</title>
+
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+</head>
+<body style="margin:0;padding:0;text-align:center;">
+<script type="text/javascript" async="async" src="./publishertag.js"></script>
+<script>
+    window.Criteo = window.Criteo || {};
+    window.Criteo.events = window.Criteo.events || [];
+</script>
+<script type="text/javascript">
+
+    var uid = "466889";
+    var common_slotid = "criteo-" + uid;
+    var div = document.createElement("div");
+    div.setAttribute("id", common_slotid);
+    document.getElementsByTagName("body")[0].appendChild(div);
+
+    var passback_url = decodeURIComponent("https%3A%2F%2Fwww.mediacategory.com%2Fservlet%2FadBanner%3Ffrom%3Dhttps%253A%2F%2Fnewsstand.naver.com%2Finclude%2Fpage%2F277.html%26s%3D58021%26iwh%3D160_600%26igb%3D69%26cntad%3D1%26cntsr%3D1%26passback%3Dcriteoadno");
+    var extAddition = JSON.parse('{"publisherId":109009,"floor":890,"zoneId":1536296}');
+    var elpwidth = "160";
+    var elpheight = "600";
+    var sizes = elpwidth + 'x' + elpheight;
+    var floor = extAddition.floor;
+    var publisherId = extAddition.publisherId;
+    var zoneId = extAddition.zoneId;
+    var networkId = "8367";
+
+    Criteo.events.push(function () {
+        var adUnits = {
+            'networkId': networkId,
+            'publisherId': publisherId,
+            'placements': [{
+                'slotid': common_slotid,
+                'zoneId': zoneId,
+                'sizes': [sizes],
+                'ext': {
+                    'bidder': {
+                        'uid': uid
+                    },
+                    'floors': {
+                        'banner': {
+                            '*': {
+                                'floor': floor,
+                                'currency': 'KRW'
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+        Criteo.Passback.RequestBids(adUnits, 1500);
+    });
+</script><div id="criteo-466889"><iframe id="criteo-466889_iframe" frameborder="0" allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" scrolling="no" vspace="0" width="160" height="600" src="./saved_resource.html"></iframe></div>
+
+<script type="text/javascript">
+
+    Criteo.events.push(function () {
+        Criteo.Passback.RenderAd(common_slotid, mobonPassbackCall);
+        setTimeout(function () {
+            mobonPassbackCall();
+        }, 2000);
+    });
+
+    function mobonPassbackCall() {
+        if (document.getElementById(common_slotid).children.length > 0) {
+            return;
+        }
+        var div = document.getElementById(common_slotid);
+        if (!div) {
+            return;
+        }
+            var ifr = document.createElement("iframe");
+            ifr.setAttribute("id", common_slotid + "_iframe");
+            ifr.setAttribute("frameborder", "0");
+            ifr.setAttribute("allowtransparency", "true");
+            ifr.setAttribute("hspace", "0");
+            ifr.setAttribute("marginwidth", "0");
+            ifr.setAttribute("marginheight", "0");
+            ifr.setAttribute("scrolling", "no");
+            ifr.setAttribute("vspace", "0");
+            ifr.setAttribute("width", elpwidth);
+            ifr.setAttribute("height", elpheight);
+            div.appendChild(ifr);
+
+        var htmlcode = "<html><head></head><body></body></html>";
+        var ifrd = ifr.contentWindow.document;
+        ifrd.open();
+        ifrd.write(htmlcode);
+
+        var mob_iframe = document.createElement("iframe");
+        mob_iframe.src = passback_url;
+        mob_iframe.width = elpwidth;
+        mob_iframe.height = elpheight;
+        mob_iframe.scrolling = "no";
+        mob_iframe.frameBorder="0";
+        mob_iframe.marginWidth="0";
+        mob_iframe.marginHeight="0";
+        ifrd.getElementsByTagName("body")[0].appendChild(mob_iframe);
+
+        ifrd.close();
+
+    }
+</script>
+
+
+<iframe src="./syncframe.html" width="0" height="0" frameborder="0" sandbox="allow-scripts allow-same-origin" aria-hidden="true" title="Criteo GUM iframe" style="border-width: 0px; margin: 0px; display: none;"></iframe></body></html>

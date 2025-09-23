@@ -1,0 +1,19 @@
+function passAuidToCallBackFn(calllbackFn){
+    var auid = "835659899fb6274b38823b0b1971c0f5c765b01";
+    var newAuid = "";
+    var ip = "219.250.88.7.3320652";
+
+    calllbackFn(auid, newAuid, ip);
+}
+
+function retrieveMobonAuidAndIpInfo() {
+    var auId = "835659899fb6274b38823b0b1971c0f5c765b01";
+    var ipInfo = "219.250.88.7.3320652";
+    var newAuid = "";
+    return {auId : auId, ipInfo : ipInfo, newAuid : newAuid};
+}
+function retrieveMobonAuidAndUniId() {
+    var auId = "835659899fb6274b38823b0b1971c0f5c765b01";
+    var uniId = "";
+    return {auId : auId, uniId : uniId};
+}
