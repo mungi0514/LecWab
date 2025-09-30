@@ -1,0 +1,133 @@
+body {
+    font-family: "Noto Sans KR", Arial, sans-serif;
+    margin: 20px;
+    background: #fffdfc;
+    color: #444;
+}
+
+h1 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+table#menus {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+table#menus th, 
+table#menus td {
+    border: 1px solid #eee;
+    padding: 12px 8px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* 구분 열 */
+table#menus td.corner {
+    background: #f5f5f5;
+    font-weight: bold;
+    width: 80px;
+    color: #555;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table#menus td.time {
+    background: #eee;
+    font-weight: bold;
+    width: 60px;
+    color: #222;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* 월요일 */
+table#menus th:nth-child(3) {
+    background: #ffb6c1; 
+    color: #fff;
+}
+table#menus td:nth-child(3) {
+    background: #ffe6ea; 
+}
+
+/* 화요일 */
+table#menus th:nth-child(4) {
+    background: #ffd966; 
+}
+table#menus td:nth-child(4) {
+    background: #fff9e0; 
+}
+
+/* 수요일 */
+table#menus th:nth-child(5) {
+    background: #93e993; 
+    color: #fff;
+}
+table#menus td:nth-child(5) {
+    background: #e6ffe6; 
+}
+
+/* 목요일 */
+table#menus th:nth-child(6) {
+    background: #6fb9f0; 
+    color: #fff;
+}
+table#menus td:nth-child(6) {
+    background: #e6f2ff; 
+}
+
+/* 금요일 */
+table#menus th:nth-child(7) {
+    background: #b19cd9; 
+    color: #fff;
+}
+table#menus td:nth-child(7) {
+    background: #f0e6ff; 
+}
+
+/* 오늘의 백반 */
+table#menus td strong {
+    display: inline-block;
+    margin: 6px 0;
+    padding: 2px 6px;
+    border-radius: 6px;
+    background: rgba(0,0,0,0.05);
+    font-size: 13px;
+    color: #333;
+}
+
+/* 호버 효과 */
+#menus td:hover {
+    font-weight: bold;      
+    cursor: pointer;           
+    transition: all 0.2s ease; 
+}
+
+/* css 아이콘 */
+.star::before,
+.star::after {
+    content: "★";
+    color: gold;
+    margin: 0 2px;
+}
+
+
+/* 반응형 */
+@media (max-width: 768px) {
+    table#menus th, 
+    table#menus td {
+        font-size: 12px;
+        padding: 6px;
+    }
+}
+
