@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta authors=""임순범 박희민> </meta>
+    <title>HTML 기본구조</title>
+</head>
+<body>
+    <h2>HTML 문서의 기본 구조</h2>
+    <p>html 문서는 head와 body 요소로 구성된다.</p>
+        <p>body에는 내용을 구성하는 여러가지 요소가...</p>
+
+        <!-- 설명문은 이렇게 작성 -->
+
+        <!-- 단락의 제목과 줄 -->
+    <h1>&lt;H1&gt; 헤드라인 제목 1호</h1>
+    <h2>&lt;H2&gt; 헤드라인 제목 2호</h2>
+    <h3>&lt;H3&gt; 헤드라인 제목 3호</h3>
+    <h4>&lt;H4&gt; 헤드라인 제목 4호</h4>
+    <h5>&lt;H5&gt; 헤드라인 제목 5호</h5>
+    <h6>&lt;H6&gt; 헤드라인 제목 6호</h6>
+    <p>단락은 &lt;p&gt; 요소로 표현한다.</p>
+    <p>&lt;p&gt;요소는&nbsp;단락이 끝나면 구분을 위하여
+        줄간격을 띄우지만, <br>
+        단순 줄바꿈인 &lt;br&gt; 요소는&nbsp;줄간격을 띄우지 않는다.
+    </p>
+
+    <!-- 단락 꾸미기 -->
+
+    <h3>가로줄(Horizontal Line) &lt;hr&gt;요소</h3>
+    <p>&nbsp;가로줄은 &lt;pre&gt;요소를 이용</p>
+    <hr />&nbsp;자동으로 줄 바뀐다
+    <h3>형식 유지 &lt;pre&gt; 요소</h3>
+    <pre>&nbsp; p r e 요 소 는 공백문자를
+        입력한   그대로
+           화면에   출력한다.</pre>
+    <h3>단락인용 &lt;blockquote&gt;&nbsp;요소</h3>
+    <blockquote>
+        <p>다른 글의 내용을 인용하여 적을 때 사용한다. <br>
+        인용된 내용은 화면에서 들여쓰기를 한다.</p>
+    </blockquote>
+
+    <!-- 텍스트 꾸미기 -->
+
+    <h2>다양한 텍스트 표현</h2>
+    <p>텍스트의 성격을 지정해 주는 요소로 <em>강조(em)</em>, <strong>강한 강조(strong)</strong>
+    <mark>하이라이트(mark)</mark>, <SMALL>작은 글자(small)</SMALL>, <sub>아래첨자(sub)</sub>,
+    <sup>위첨자(sup)</sup> 를 표현할 수 있다.</p>
+    <p><strong>책소개:</strong><sup>소셜미디어 시대의</sup><em>컴퓨터와 IT 기술의 이해</em>
+    <br><strong>저자</strong>: 최윤철, 한탁돈, 임순범</p>
+    <p><em>컴퓨터와 IT 기술의 이해</em>는 <mark>IT기술 전반</mark>에 대해 포괄적으로 이해하고,
+    특히 <small>우리사회의 각 영역에서의</small> 활용과 미치는 영향을 이해하기 위해
+    <strong>매우 적잘한 교재가 될 것이다.</strong></p>
+
+    <!-- 목록 나열학기 -->
+    <h2>과목별 참고도서 목록</h2>
+        <ul>
+            <li>IT 기술의 이해</li>
+            <ol>
+                <li>최윤철, 임순범, 한탁돈 공저, 컴퓨터와 IT 기술의 이해</li>
+                <li>D. Morley, C. Parker, Understanding Computers 15th Ed.</li>
+                <li>G. Shelly, M. Vermaat, Discovering Computers</li>
+            </ol>
+            <li>웹프로그래밍</li>
+            <ol>
+                <li>임순범, 박희민 공저, HTML5 웹프로그래밍 입문</li>
+                <li>최윤철, 임순범 공저, 소셜미디어 시대의 인터넷 이해</li>
+                <li>B. McLaughlin, What Is HTML5?</li>
+            </ol>
+        </ul>
+        <h2>지정도서</h2>
+        <de>
+            <dt>지정도서 서비스란?</dt>
+            <dd>수업에 필요한 주교재 및 참고문헌 등의 필수도서를 도서관 1층 대출...
+                별도로 비치하여 관리하는 제도
+            </dd>
+            <dt>신청기간</dt>
+            <dd>매년 1월과 6월 둘째 주 학교 홈페이지에 공지</dd>
+        </de>
+
+    <!-- 표 작성하기 -->
+    <h3>기본적인 표의 표현</h3>
+    <table border="1">
+        <tr>
+            <th>책제목</th>
+            <th>저자</th>
+            <th>출판사</th>
+        </tr>
+        <tr>
+            <td>HTML5 웹프로그래밍 입문</td>
+            <td>임순범, 박희민</td>
+            <td>생능</td>
+        </tr>
+        <tr>
+            <td>소셜미디어 시대의 인터넷활용</td>
+            <td>최윤철, 임순범</td>
+            <td>생능</td>
+        </tr>
+        <tr>
+            <td>What Is HTML5?</td>
+            <td>B. McLaughlin</td>
+            <td>O'Reilly</td>
+        </tr>
+    </table>
+
+    <!-- 표의 구조적 표현 -->
+    <table border="1">
+        <tr>
+            <td rowspan="3">아래줄(rows)<br>셀 합치기</td><td>1행(row)2열</td>
+        </tr>
+        <tr>
+            <!--2행 1열 없음--><td>2행(row)2열</td>
+        </tr>
+        <tr>
+            <!--3행 1열 없음--><td>3행(row)2열</td>
+        </tr>
+    </table>
+    <table border="1">
+        <tr>
+            <td colspan="3">옆 칸(cols)의 셀 합치기</td>
+        </tr>
+        <tr>
+            <td>2행1열(col)</td> <td>2행2열(col)</td> <td>2행3열(col)</td>
+        </tr>
+    </table>
+
+    <!-- 실습 -->
+    <h3>표의 구조적인 표현</h3>
+    <caption>과목별 추천도서</caption>
+    <table border="1">
+        <tr>
+            <th>과목</th>
+            <th>책제목</th>
+            <th>저자</th>
+            <th>출판사</th>
+        </tr>
+        <tr>
+            <td rowspan="3">웹프로그래밍</td>
+            <td>HTML5 웹프로그래밍 입문</td>
+            <td>임순범, 박희민</td>
+            <td>생능</td>
+        </tr>
+        <tr>
+            <td>소셜미디어 시대의 인터넷 활용</td>
+            <td>최윤철, 임순범</td>
+            <td>생능</td>
+        </tr>
+        <tr>
+            <td>What Is Html5?</td>
+            <td>B. McLaughlin</td>
+            <td>O' Reilly</td>
+        </tr>
+        <tr>
+            <th>합계</th>
+            <td colspan="3">3권</td>
+        </tr>
+    </table>
+
+</body>
+</html>

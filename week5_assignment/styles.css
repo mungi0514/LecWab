@@ -113,6 +113,14 @@ table#menus td strong {
     transition: all 0.2s ease; 
 }
 
+/* 좋아하는 메뉴 */
+.star {
+    background-color: #fab1a0; 
+    font-weight: bold;
+    padding: 2px 4px;
+    border-radius: 5px;
+}
+
 /* css 아이콘 */
 .star::before,
 .star::after {

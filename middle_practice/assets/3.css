@@ -1,0 +1,14 @@
+
+a{color:skyblue}
+p{color:darkgray;font-size: 9px;;}
+h4, h2{line-height: 1;}
+ul{list-style-position: outside;}
+figcaption{text-align: center;margin-left: 0;}
+img{height: 150px;}
+body p, h2, h4{margin:0;margin-left: 20px;}
+hr{margin-bottom: 20px;}
+ul{margin: 0;}
+.red1{color: red;}
+#img1{margin-left: 10px;}
+.one_line{vertical-align: middle;display: inline-block;}
+p.one_line{margin-left: 5px;}

@@ -1,0 +1,24 @@
+인터넷 발전 과정
+유래: 인터-네트워크(inter-network)
+
+1. ARPANET
+- 1969년 미국 국방성에서 미국 내 4개 대학 연결
+- 데이터 전송에 IP(Internet Protocol) 전송 규약 사용
+
+2. TCP/IP 프로토콜의 발전
+- 이더넷 방식의 LAN기술, TCP/IP(Transmission Control Protocol/Internet Protocol) 
+  통신 기술 발전
+- TCP/IP는 1982년 인터넷의 표준 프로토콜로 제정
+
+3. NSFNET 구축
+- 1986년 미국과학재단(NSF)이 5곳의 슈퍼컴을 TCP/IP로 연결해 학술 정보망 NSFNET 구축
+- 슈퍼컴 간에는 케이블망으로 연결해 백본역할, 인근 지역의 대학과 회사의 LAN과 연결
+
+웹 발전 과정
+
+1. 웹
+- 1989년 팀 버너스-리 WWW 최초 제안, 1994년 웹컨소시엄(W3C, WWW Consortium) 결성
+- 유럽 각지 CERN 소속 연구원들의 다양한 유형의 정보 공유 목적
+- 하이퍼 텍스트 개념 채택
+- 1993년 GUI 방식의 Mosaic 웹브라우저 개발
+- 1994년 상업용 웹브라우저 넷스케이프 내비게이터 보급
