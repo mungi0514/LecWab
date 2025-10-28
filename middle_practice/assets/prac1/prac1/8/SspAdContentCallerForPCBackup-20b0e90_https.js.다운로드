@@ -1,0 +1,154 @@
+/*
+ * @(#)SspAdContentCallerForPC.js 2019. 03. 16
+ *
+ * Copyright 2019 NAVER Corp. All rights Reserved.
+ * NAVER PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+
+var SspAdContentCallerForPCBackup = $Class({
+    $init: function() {
+        this._adContentLocationCode = "";
+    },
+
+    renderAdContent : function(tagData, adContentDivId, adContentLocation){
+        var _adContentLocationCode;
+
+        if (adContentLocation === "1") {
+            //중단광고면
+            _adContentLocationCode = "middle";
+            this._appendMiddleAdvertiseDiv(adContentDivId);
+        } else if (adContentLocation === "2") {
+            //하단광고면
+            _adContentLocationCode = "bottom";
+            this._appendBottomAdvertiseDiv(adContentDivId);
+        } else {
+            //중하단 광고면 PC인 경우 하단 광고만 그린다.
+            _adContentLocationCode = "both";
+            this._appendBottomAdvertiseDiv(adContentDivId);
+        }
+        this._renderAd(tagData, adContentDivId, _adContentLocationCode);
+    },
+
+    _appendMiddleAdvertiseDiv : function(adContentDivId){
+        var advertiseWrapDiv = document.createElement('div');
+        advertiseWrapDiv.className = 'ssp-adcontent align_center';
+
+        var advertiseDiv = document.createElement('div');
+        advertiseDiv.id = adContentDivId;
+        advertiseDiv.className = 'ssp_adcontent_inner';
+
+        advertiseWrapDiv.append(advertiseDiv);
+
+        var seComponents = Array.prototype.slice.call(
+            document.querySelectorAll("#postListBody ._post_wrap:first-of-type .se-main-container .se-component, #postListBody ._post_wrap:first-of-type .__se_component_area .se_component")
+        );
+
+        if (seComponents.length === 0) {
+            return;
+        }
+
+        if (seComponents.length === 1) {
+            seComponents[0].parentNode.after(advertiseWrapDiv);
+            return;
+        }
+
+        var totalHeight = 0;
+        seComponents.forEach(function (el) {
+            totalHeight += el.offsetHeight;
+        });
+
+        //전체 컴포넌트 길이의 30%에 해당하는 부분에 중단광고를 삽입한다
+        var targetHeight = (totalHeight / 10) * 3;
+
+        for (var i in seComponents) {
+            var seComponent = seComponents[i];
+            targetHeight -= seComponent.offsetHeight;
+
+            if (seComponent.offsetHeight < 1) {
+                //lazy loading등으로 인해 height이 없는 component는 기본값 400으로 한다
+                targetHeight -= 400;
+            }
+
+            if (targetHeight < 0 && i > 0) {
+                seComponent.parentNode.insertBefore(advertiseWrapDiv, seComponent);
+                break;
+            }
+        }
+    },
+
+    _appendBottomAdvertiseDiv : function(){
+        var advertiseWrapDiv = document.createElement('div');
+        advertiseWrapDiv.className = 'ssp-adcontent align_center';
+
+        var advertiseDiv = document.createElement('div');
+        advertiseDiv.id = "ssp-adcontent";
+        advertiseDiv.className = 'ssp_adcontent_inner';
+
+        advertiseWrapDiv.append(advertiseDiv);
+
+        var seComponents = Array.prototype.slice.call(
+            document.querySelectorAll("#postListBody ._post_wrap:first-of-type .se-main-container .se-component, #postListBody ._post_wrap:first-of-type .__se_component_area .se_component")
+        );
+        if (seComponents.length === 0) {
+            return;
+        }
+
+        var lastComponent = seComponents[seComponents.length - 1];
+        lastComponent.parentNode.appendChild(advertiseWrapDiv);
+    },
+
+    _renderAd: function(tagData, adContentDivId, adContentLocation) {
+        var extraOption = this._makeExtraOptionParam(tagData, true, adContentLocation);
+        var eventList = {};
+        eventList[spwp.adEvent.AD_LOAD_FAILED] = function () {
+            var adContentElement = $Element(adContentDivId);
+            if(adContentElement) {
+                adContentElement.leave();
+            }
+        };
+
+        window.spwp = spwp || {};
+        spwp.cmd = spwp.cmd || [];
+        spwp.cmd.push(function() {
+            spwp.setConfig({
+                enablePersistAd: true
+            });
+            var adUnits = [{
+                unitId: gAdContentUnitIdForPC,
+                divId: adContentDivId,
+                extraOption: extraOption
+            }];
+            spwp.addAdUnits(adUnits);
+            spwp.requestAds({
+                adUnitIds: [gAdContentUnitIdForPC],
+                eventList : eventList
+            });
+            spwp.renderAd(adContentDivId);
+        });
+    },
+
+    _makeExtraOptionParam: function(tagData, adContentYN, adContentLocation) {
+        for (var i in tagData) {
+            if (tagData[i].logno == gnFirstLogNo) {
+                this.tagNames = decodeURIComponent(tagData[i].tagName);
+            }
+        }
+
+        return {
+            mediaParams: {
+                blogId: gBlogId,
+                pid: "" + gnFirstLogNo,
+                gdid: "" + gdid,
+                sessionId: gsSesseionId,
+                publisherRequest: gsBlogOwnerYn,
+                cnt: 1,
+                pk: gsSearchKeyword,
+                pt: this.tagNames,
+                adContentYN: adContentYN,
+                adLocation: adContentLocation,
+                saInfo : gsSaInfo,
+                blogGrade : 5
+            }
+        };
+    }
+});

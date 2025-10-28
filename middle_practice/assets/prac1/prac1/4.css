@@ -1,0 +1,31 @@
+body {
+    text-align: center;
+    font-size: 15px;
+    font-family: '맑은 고딕';
+}
+
+.TxtBabypink,
+.TxtBlink,
+.TxtPink,
+.TxtYellow {
+    font-weight: bold;
+}
+
+.TxtPink {
+    background-color: pink;
+    
+}
+
+.TxtBlink {}
+
+.TxtBabypink {
+    background-color: orange;
+}
+
+.TxtYellow {
+    background-color: yellow;
+}
+
+.fix_img {
+    position: fixed; top: 10px; right: 20px
+}

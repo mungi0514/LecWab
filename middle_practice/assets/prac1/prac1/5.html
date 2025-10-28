@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .Form--Wrapper {
+        width: 80%;
+        height: 60vh;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+
+        justify-content: center;
+      }
+      .Form--Header {
+        display: flex;
+        align-items: center;
+        width: calc(80% - 40px);
+        margin: 0 auto;
+        height: 50px;
+        flex-direction: row;
+        padding: 0 20px;
+        background-color: black;
+        color: white;
+
+        justify-content: space-between;
+      }
+
+      .Form--Box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        width: 100%;
+
+        gap: 40px;
+      }
+
+      .Form--Input--Box {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      fieldset {
+        width: 50%;
+        margin: 0 auto;
+      }
+
+      label {
+        display: flex;
+        width: 80px;
+        height: 40px;
+        background-color: lightgray;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Form--Header">
+      <div>상세검색</div>
+      <div>X</div>
+    </div>
+    <div class="Form--Wrapper">
+      <form
+        class="Form--Box"
+        method="get"
+        action="https://libebook.smu.ac.kr/FxLibrary/product/list/"
+      >
+        <div style="display: flex; flex-direction: row">
+          <div style="width: 100%; margin: 0 auto">
+            <fieldset>
+              <legend>검색어 입력</legend>
+              <div class="Form--Input--Box">
+                <label for="name">서명</label>
+                <input type="text" name="name" size="20" id="name" />
+              </div>
+              <div class="Form--Input--Box">
+                <label for="author">저자</label>
+                <input type="text" name="author" size="20" id="author" />
+              </div>
+              <div class="Form--Input--Box">
+                <label for="publisher">출판사</label>
+                <input type="text" name="publisher" size="20" id="publisher" />
+              </div>
+            </fieldset>
+          </div>
+
+          <div style="width: 100%; margin: 0 auto">
+            <fieldset>
+              <legend>검색옵션</legend>
+              <div class="Form--Input--Box">
+                <label for="name">검색방법</label>
+                <input type="radio" name="searchType" value="1" checked /> 
+                <input type="radio" name="searchType" value="2" />
+                <input type="radio" name="searchType" value="3" />
+              </div>
+
+              <div class="Form--Input--Box">
+                <label for="name">지원기기</label>
+                <input type="radio" name="terminal" value="전체" checked />
+                <input type="radio" name="terminal" value="전용단말기" />
+                <input type="radio" name="terminal" value="스마트기기" />
+              </div>
+
+              <div class="Form--Input--Box">
+                <label for="explanation">책정보</label>
+                <input
+                  type="text"
+                  name="explanation"
+                  size="20"
+                  id="explanation"
+                />
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <input type="hidden" name="page" value="1" />
+        <input type="submit" value="검색" style="width: 70px; height: 50px; margin: 0 auto;"/>
+      </form>
+    </div>
+  </body>
+</html>
+
+<!-- 
+
+문제 5번 [10] 상명대 도서관 상세검색창 만들기
+다음은 상명대 도서관 상세검색창과 이를 사용한 결과 URL이다.
+• 다음 이미지를 참고하여 form 만들기 [6]
+• HTML 형식 [4]
+• 디자인 [2]
+• 결과 URL을 참고하여 form 내용 완성하기 [4]
+• 검색 버튼 눌렀을 때 생성되는 URL 확인 [4]
+
+
+?page=1&searchType=detail&name=a&author=b
+&publisher=c&searchoption=1&terminal=2&explanation=d
+
+-->

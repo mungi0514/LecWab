@@ -1,0 +1,349 @@
+@charset "utf-8";
+
+/* default */
+body,div,ul,ol,li,dl,dt,dd,p,input,textarea,select,h1,h2,h3,h4,em,address,fieldset,form,iframe,object,button{margin:0;padding:0}
+img,fieldset,iframe{border:none}
+ul,li{list-style-type:none}
+table{clear:both;border-collapse:collapse}
+em,address{font-style:normal}
+a{color:inherit;text-decoration:none}
+button{border:none;background:transparent}
+.blind{visibility:hidden !important;overflow:hidden !important;position:absolute;top:0 !important;left:0 !important;width:0 !important;height:0 !important;margin:0 !important;padding:0 !important;border:0 !important;font-size:0 !important;line-height:0 !important}
+
+.traders_area {
+    font-family: 'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕','돋움',Dotum,sans-serif;
+    background-color: #fff;
+}
+
+.traders_area a {
+    display: block;
+    color: #000;
+    text-decoration:none;
+}
+
+.traders_area .point {color: #36cf5e;}
+
+.traders_area .blind {
+    overflow:hidden;
+    position:absolute;
+    clip:rect(0 0 0 0);
+    width:1px;
+    height:1px;
+    margin:-1px;
+}
+
+.traders_area .icon_ad:before,
+.traders_area .btn_area:after,
+.traders_area .icon_main,
+.traders_area .button_area .btn_arrow,
+.traders_area .more_arrow:before {
+    background: url("../img/sp_traders.png") no-repeat;
+}
+.traders_area .traders_tit_area {
+    position: relative;
+    overflow: hidden;
+    padding: 16px 65px 10px 16px;
+    font-size: 15px;
+    line-height: 16px;
+}
+.traders_area .traders_tit_area .icon_ad {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #a5a5a5;
+}
+.traders_area .traders_tit_area .icon_ad:before {
+    content: '';
+    float: right;
+    width: 15px;
+    height: 15px;
+    margin-left: 3px;
+    background-position: -142px -46px;
+}
+.traders_area .traders_tit_area .title {
+    float: left;
+    font-weight: 600;
+    letter-spacing: -0.87px;
+    color: #141414;
+    vertical-align: top;
+}
+.traders_area .traders_tit_area .tag_area {
+    overflow: hidden;
+    color: #797979;
+    letter-spacing: -0.87px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.traders_area .list_item {
+    position: relative;
+    line-height: 20px;
+}
+.traders_area .list_item_inner {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 1.4px 1.4px 3.9px 0.1px rgba(0, 0, 0, 0.04);
+    border-collapse: separate;
+}
+.traders_area .list_item_inner:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 3px;
+    border: solid 1px #f0f0f0;
+}
+.traders_area .list_item .traders_thumb_area {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 116px;
+    height: 116px;
+}
+.traders_area .list_item .traders_thumb_area:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.03);
+}
+.traders_area .list_item .traders_img {
+    border: 0;
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+.traders_area .traders_thumb_area .img_count {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 0 6px;
+    border-radius: 11px;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-family: Arial, HelveticaNeue, 'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕','돋움',Dotum,sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.14px;
+    color: #fff;
+}
+.traders_area .list_item .traders_info_area {
+    padding: 13px 12px 13px 16px;
+    overflow: hidden;
+    border-left-width: 0;
+    height: 90px;
+    position: relative;
+    margin:0;
+}
+.traders_area .traders_info_area_inner .title,
+.traders_area .traders_info_area_inner .txt {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    letter-spacing: -0.87px;
+}
+.traders_area .traders_info_area_inner {
+    position: relative;
+}
+.traders_area .traders_info_area_inner .link_title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.traders_area .traders_info_area_inner .title{
+    display: block;
+}
+.traders_area .traders_info_area_inner .txt_description {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    right: 0;
+}
+.traders_area .traders_cont_list_area .btn_area {
+    position: absolute;
+    bottom: 15px;
+    left: 16px;
+    padding-right: 10px;
+    font-size: 14px;
+    line-height: 17px;
+    color: #888;
+}
+.traders_area .more_arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.traders_area .more_arrow:before {
+    content:'';
+    display: inline-block;
+    width: 5px;
+    height: 10px;
+    vertical-align: 0.5px;
+    background-position: -142px -80px;
+}
+.traders_area .button_area {
+    text-align: center;
+    padding-bottom: 4px;
+}
+.traders_area .button_area .btn_arrow {
+    width: 38px;
+    height: 34px;
+    cursor: pointer;
+}
+.traders_area .button_area .btn_arrow.type_prev{
+    background-position: -80px -73px;
+}
+.traders_area .button_area .btn_arrow.type_prev:hover  {
+    background-position: -14px -73px;
+}
+.traders_area .button_area .btn_arrow.type_next {
+    background-position: -80px -12px;
+}
+.traders_area .button_area .btn_arrow.type_next:hover {
+    background-position: -14px -12px;
+}
+.traders_area .button_area .pagination {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 0 4px;
+    font-size: 12px;
+    letter-spacing: -0.7px;
+    vertical-align: top;
+}
+.traders_area .button_area .pagination_dash {
+    margin: 0 2px;
+}
+/* 1EA */
+.traders_area .traders_cont_list_area.one_card_type .list_item {
+    padding: 0 16px 16px;
+}
+.traders_area .traders_cont_list_area.one_card_type + .button_area {
+    margin-top: -8px
+}
+/* 2EA */
+.traders_area .traders_cont_list_area.ad_double .list_item {
+    display: inline-block;
+    font-size: 15px;
+    padding: 0 5px 16px;
+    width: 50%;
+    box-sizing: border-box;
+}
+.traders_area .traders_cont_list_area.ad_double .list_item:first-child {
+    padding-left: 16px;
+}
+.traders_area .traders_cont_list_area.ad_double .list_item:last-child {
+    padding-right: 16px;
+}
+.traders_area .traders_cont_list_area.ad_double .traders_cont_list {
+    font-size: 0;
+}
+/* 5EA */
+.traders_area .traders_cont_list_area.ad_rolling {
+    overflow: hidden;
+}
+.traders_area .traders_cont_list_area.ad_rolling .list_item {
+    display: inline-block;
+    width: 358px;
+    padding: 0 0 10px 16px;
+    font-size: 15px;
+    vertical-align: top;
+}
+.traders_area .traders_cont_list_area.ad_rolling .traders_cont_list {
+    width: 100%;
+    white-space: nowrap;
+    font-size: 0;
+}
+.traders_area .traders_cont_list_area.ad_rolling .traders_info_area {
+    white-space: normal;
+}
+.traders_area .traders_cont_list_area .extend_site {
+    position: absolute;
+    bottom: 15px;
+    left: 16px;
+    right: 16px;
+    overflow: hidden;
+    height: 18px;
+    margin-top: 5px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #424242;
+    letter-spacing: -0.81px;
+    box-sizing: border-box;
+}
+.traders_area .extend_site .extend_link {
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    max-width: 100%;
+    padding-right: 10px;
+    color: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+.traders_area .extend_site .icon_main ~ .text {
+    vertical-align: 4px;
+}
+.traders_area .traders_cont_list_area .icon_main {
+    position: relative;
+    display: inline-block;
+    margin-right: 1px;
+    width: 30px;
+    height: 16px;
+    background-position: -142px -10px;
+    vertical-align: 1px;
+}
+.traders_area .extend_site .addition_benefit {
+    float: left;
+    margin-right: 5px;
+    color: #0abe16;
+}
+.traders_area .extend_site .addition_benefit ~ .text {
+    color:#797979;
+}
+.traders_area .extend_site .addition_tag {
+    float: left;
+    padding: 0 3px;
+    background-color: #f2f4f6;
+    font-size: 14px;
+    color: #666;
+}
+.traders_area .extend_site .addition_tag ~ .addition_tag{
+    margin-left: 6px;
+}
+.traders_area .traders_cont_list_area.ad_rolling .list_item:last-child {
+    padding-right: 16px;
+}
+.traders_area .traders_cont_list_area.ad_rolling + .button_area {
+    margin-top: -1px;
+}
+
+/* 제로페이 가맹점 */
+.traders_area .traders_cont_list .local_currency {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: 6px 7px;
+    border-radius: 0 5px 0 3px;
+    border: 1px solid #e9edf7;
+    background-color: #f0f3fb;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: -0.42px;
+    color: #2e4da5;
+}

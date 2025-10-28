@@ -1,0 +1,79 @@
+/*
+ * @(#)SspAdPostCallerForPC.js 2018. 11. 20
+ *
+ * Copyright 2018 NAVER Corp. All rights Reserved.
+ * NAVER PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+var SspAdPostCallerForPC = $Class({
+    $init: function() {
+    },
+
+    renderAdPostDiv: function (tagData, adPostDivId, adContentYN, adContentLocation) {
+        var extraOption = this._makeExtraOptionParam(tagData, adContentYN, adContentLocation);
+
+        window.gladsdk = window.gladsdk || { cmd: [] };
+        window.gladsdk.cmd.push(function () {
+            window.gladsdk.setGlobalConfig({
+                enablePersistAd: true
+            });
+            window.gladsdk.defineAdSlot({
+                adUnitId: gAdPostUnitIdForPC,
+                adSlotElementId: adPostDivId,
+                customParam: extraOption,
+            });
+            window.gladsdk.displayAd(adPostDivId);
+        });
+    },
+
+	_makeAdContentLocationCode : function(adContentYN, adContentLocation) {
+		if(!adContentYN) {
+			return "";
+		}
+
+		switch(adContentLocation) {
+			case "1":
+				return "middle";
+			case "2":
+				return "bottom";
+			default:
+				return "both";
+		}
+	},
+
+    _makeExtraOptionParam: function(tagData, adContentYN, adContentLocation) {
+        var tagNames;
+        for (var i in tagData) {
+            if (tagData[i].logno == gnFirstLogNo) {
+                tagNames = decodeURIComponent(tagData[i].tagName);
+            }
+        }
+
+        var adContentLocationCode = this._makeAdContentLocationCode(adContentYN, adContentLocation);
+
+        var welPcol1 = $Element($$.getSingle("._adpost_skin_property .pcol1"));
+        var welPcol2 = $Element($$.getSingle("._adpost_skin_property .pcol2"));
+        var welPcol3 = $Element($$.getSingle("._adpost_skin_property .pcol3"));
+
+        var sStyleHeadline = welPcol1.css("color");
+        var sStyleDefault = welPcol2.css("color");
+        var sStyleHighlight = welPcol3.css("color");
+
+        return {
+            blogId: gBlogId,
+            pid: "" + gnFirstLogNo,
+            gdid: "" + gdid,
+            sessionId: gsSesseionId,
+            publisherRequest: gsBlogOwnerYn,
+            cnt: 1,
+            pk: gsSearchKeyword,
+            pt: tagNames,
+            adContentYN: adContentYN,
+            adLocation: adContentLocationCode,
+            styleHeadline: sStyleHeadline,  //pcol1
+            styleDefault: sStyleDefault,    //pcol2
+            styleHighlight: sStyleHighlight, //pcol3
+            saInfo : gsSaInfo,
+            blogGrade : 5
+        };
+    }
+});

@@ -1,0 +1,38 @@
+body{
+    font-size: 10px;
+    line-height: 1;
+}
+a {
+    text-decoration-line: none;
+}
+a:visited {
+   color: yellow; 
+}
+#red{color: red;}
+#purple{
+    color: purple;
+}
+li{
+    list-style-type: square;
+}
+figure{display: inline-block; text-align: center;}
+img#left{
+    margin-left: 10px;
+}
+#grey{
+    color: darkgray;
+}
+.one{
+    display: inline-block;
+}
+
+.under {
+    z-index: 1;
+}
+#upper{
+    height: 200px;
+    z-index: 2;
+    position:absolute;
+    left: 500px;
+    top: 300px;
+}

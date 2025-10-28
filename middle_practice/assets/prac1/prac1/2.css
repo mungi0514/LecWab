@@ -1,0 +1,41 @@
+a:link {
+    color: green;
+}
+
+a:visited {
+    color: black;
+}
+
+h2 {
+    color: blue;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: square;
+}
+
+.redspan {
+    color: red;
+}
+figure {
+              display: flex;
+              flex-direction: column;
+              width: fit-content;
+          }
+    
+          figure img {
+              margin: 0 5px;
+          }
+    
+          figcaption {
+              margin: 0 auto;
+          }
+
+          .darkspan {
+            font-size: 9px;
+            color: darkgray;
+          }

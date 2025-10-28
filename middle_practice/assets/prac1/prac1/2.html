@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin-right: 30px;
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+
+            align-items: end;
+            list-style-type: square;
+        }
+        li {
+            width: fit-content;
+        }
+        div {
+            padding-right: 30px;
+            background-color: skyblue;
+            color: #843C0C;
+            
+            border: 3px double;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+
+            transition: opacity 5s , background-color;
+        }
+
+        div:hover {
+            opacity: 0.2;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            문제 2번
+            <li>배경은 하늘색(skyblue)</li>
+            <li>글자는 (#843C0C)</li>
+            <li>글은 오른쪽 정렬</li>
+            <li>테두리는 2중 실선, 굵기는 3, 모서리는 상단만 라운드(20px) 처리</li>
+            <li>박스 크기는 auto(default)</li>
+            <li>마우스 올리면 이벤트 발생</li>
+            (5초 동안 투명(0.2)해지고, 배경색 검은색(black)으로 변경)
+        </ul>
+    </div>
+</body>
+</html>

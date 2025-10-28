@@ -1,0 +1,25 @@
+body{
+    display: inline-block;
+    text-align: center;
+    font-size: 18px;
+    font-family: "맑은 고딕"";
+}
+#TextBabypink{
+    font-weight: bold;
+    background-color: orange
+}
+.TextPink{
+    font-weight: bold;
+    background-color: pink;
+}
+#TextYellow{
+    font-weight: bold;
+    background-color: yellow;
+}
+video{
+    width: 720px;
+}
+img{
+    height: 200px;
+    position: fixed; bottom: 10px; right: 20px;
+}

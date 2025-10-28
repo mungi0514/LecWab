@@ -1,0 +1,26 @@
+table {
+    width: 100%;
+    table-layout: auto;
+    border: 3px dashed black;
+    border-collapse: collapse;
+    empty-cells: hide;
+}
+th, td {
+    padding: 8px;
+    text-align: center; 
+    vertical-align: top;
+}
+
+th {
+    background-color: blue;
+    color: white;
+}
+.bold--color {
+    background-color: #CFD5EA;
+}
+.even--color {
+    background-color: #E9EBF5;
+}
+.title {
+    font-weight: bold;
+}

@@ -1,0 +1,17 @@
+body ul{list-style-type:square;
+    list-style-position:inside;}
+    body div {
+        background-color: green;
+        color: #55117f;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-style: double;
+        border-width: 2;
+        padding-right: 30px;
+        text-align: right;
+    }
+    body div:hover {
+        transition: 3s;
+        rotate: 180deg;
+        opacity: 0.2;
+    }
