@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>상명대학교 K동 헬스장 (SMU Fitness)</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="top-util-bar">
+        <div class="inner">
+            <span><a href="https://portal.smu.ac.kr/p/S00/">상명대학교 천안캠퍼스</a></span>
+            <div class="util-links">
+                <a href="mypage.html">로그인</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-inner">
+            <h1 class="logo">
+                <a href="index.html"><span class="smu-symbol">SMU</span> 상명대학교 체육관</a>
+            </h1>
+            <nav class="gnb">
+                <ul>
+                    <li class="active"><a href="index.html">시설안내</a></li>
+                    <li><a href="guide.html">운동가이드</a></li>
+                    <li><a href="mypage.html">마이페이지</a></li>
+                    <li><a href="faq.html">고객센터</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="portal-banner-group">
+            <div class="banner-box recruitment" onclick="location.href='notice_dec.html'">
+                <span class="badge">모집</span>
+                <h3>2025년 12월 신규 회원 모집 안내</h3>
+                <p>접수기간: 12.01 ~ 12.15 (클릭하여 이동)</p>
+            </div>
+            <div class="banner-box event" onclick="handleEventClick()">
+                <span class="badge new">EVENT</span>
+                <h3>🎄 크리스마스 특별 할인 이벤트</h3>
+                <p>클릭 시 할인코드 증정</p>
+            </div>
+        </section>
+
+        <section class="content-container">
+            <div class="section-title">
+                <h2>시설 및 운영 안내</h2>
+                <span class="bar"></span>
+            </div>
+            
+            <div class="info-grid">
+                <div class="card map-box">
+                    <h3 class="card-title">오시는 길</h3>
+                    <div class="map-frame">
+                         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3191.436431028283!2d127.17829288955733!3d36.83449741007835!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b2f1bd79c32ab%3A0x241af6ab8a0a12c1!2z7IOB66qF64yA7ZWZ6rWQIOyynOyViOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1764665550722!5m2!1sko!2skr" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                
+                <div class="card info-text-box">
+                    <div class="card-header-row" style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid var(--smu-blue); margin-bottom:15px; padding-bottom:10px;">
+                        <h3 class="card-title" style="border:none; margin:0; padding:0; padding-bottom:0;">운영 정보</h3>
+                        <a href="operation_info.html" style="font-size:12px; color:#666; text-decoration:none; font-weight:bold;">+ 더보기</a>
+                    </div>
+                    <ul class="info-list">
+                        <li><strong>운영시간:</strong> 평일 06:00~23:00 / 주말 09:00~18:00</li>
+                        <li><strong>위치:</strong> 상명대학교 K동(체육관)</li>
+                        <li><strong>연락처:</strong> 02-2287-0000 (담당자)</li>
+                    </ul>
+                    
+                    <h3 class="card-title mt-20">트레이너 소개</h3>
+                    <div class="trainer-profile">
+                        <div class="photo-box"><img src="assets/images/trainer1.jpg" alt="김태현 트레이너" style="width: 80px; height: 100px;"></div>
+                        <div class="profile-text">
+                            <strong>김태현 트레이너</strong>
+                            <p>생활스포츠지도사 2급<br>교정운동 전문가 (CES)</p>
+                        </div>
+                    </div>
+                    <div class="trainer-profile">
+                        <div class="photo-box"><img src="assets/images/trainer2.jpg" alt="이태현 트레이너" style="width: 80px; height: 100px;"></div>
+                        <div class="profile-text">
+                            <strong>이태현 트레이너</strong>
+                            <p>프로그램 설계 (ACSM)<br>근력 및 컨디셔닝 전문가 (NSCA)</p>
+                        </div>
+                    </div>
+                    <div class="trainer-profile">
+                        <div class="photo-box"><img src="assets/images/trainer3.webp" alt="박태현 트레이너" style="width: 80px; height: 100px;"></div>
+                        <div class="profile-text">
+                            <strong>박태현 트레이너</strong>
+                            <p>대한선수트레이너협회 (KATA)<br>재활 운동 전문가</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card calendar-box">
+                    <h3 class="card-title">12월 휴무일 안내</h3>
+                    <div id="calendar" class="portal-calendar"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-container notice-section">
+            <div class="section-header">
+                <a href="notice.html" class="more-btn"><h3>공지사항+</h3></a>
+            </div>
+            <table class="portal-table">
+                <colgroup>
+                    <col style="width: 10%;">
+                    <col style="width: 70%;">
+                    <col style="width: 20%;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>제목</th>
+                        <th>작성일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>4</td><td class="t-left">12월 GX 프로그램 일정 안내</td><td>2025.12.01</td></tr>
+                    <tr><td>3</td><td class="t-left">[중요] 샤워실 보수 공사 안내</td><td>2025.11.28</td></tr>
+                    <tr><td>2</td><td class="t-left">겨울철 실내 환기 시간 안내</td><td>2025.11.15</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <address>
+                COPYRIGHT BY SANGMYUNG UNIVERSITY. ALL RIGHTS RESERVED.
+            </address>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

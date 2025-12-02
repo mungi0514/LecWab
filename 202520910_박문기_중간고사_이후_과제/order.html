@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> Order Page </title>
+<link rel="stylesheet" type="text/css" href="style-size.css"/>
+<link rel="stylesheet" type="text/css" href="style-layout.css"/>
+<link rel="stylesheet" type="text/css" href="style-presentation.css"/>
+<script src="scripts/order.js" defer></script>
+</head>
+<body id="order">
+<div class="head"> 서적 주문 양식 </div>
+<form action="">
+    <table id="orderTable">
+        <tr> <th> 책 제목 </th> <th> 가격 </th> <th> 수량 </th> <th> 합계 </th> </tr>
+        <tr class="order-item" data-price="27000">
+            <td> 컴퓨터와 IT기술의 이해 [개정판-2판] </td> <td class="price"> 27,000원 </td>
+            <td> <input type="number" class="quantity" min="0" value="0"/> </td> 
+            <td> <input type="text" class="item-total" size= "6" value="0" readonly/> 원</td>
+        </tr>
+        <tr class="order-item" data-price="24000">
+            <td> (알기 쉬운) 알고리즘 </td> <td class="price"> 24,000원 </td>
+            <td> <input type="number" class="quantity" min="0" value="0"/> </td>
+            <td> <input type="text" class="item-total" size= "6" value="0" readonly/> 원</td>
+        </tr>
+        <tr class="order-item" data-price="27000">
+            <td> 선형대수학 Express </td> <td class="price"> 27,000원 </td>
+            <td> <input type="number" class="quantity" min="0" value="0"/> </td>
+            <td> <input type="text" class="item-total" size= "6" value="0" readonly/> 원</td>
+        </tr>
+        <tr class="order-item" data-price="29000">
+            <td> 루비 프로그래밍 언어 </td> <td class="price"> 29,000원 </td>
+            <td> <input type="number" class="quantity" min="0" value="0"/> </td> 
+            <td> <input type="text" class="item-total" size= "6" value="0" readonly/> 원</td>
+        </tr>
+        <tr class="order-item" data-price="21000">
+            <td> 소셜미디어의 이해와 활용 </td> <td class="price"> 21,000원 </td>
+            <td> <input type="number" class="quantity" min="0" value="0"/> </td>
+            <td> <input type="text" class="item-total" size= "6" value="0" readonly/> 원</td>
+        </tr>
+        <tr class="order-item" data-price="25000">
+            <td> 멀티미디어 배움터 2.0 </td> <td class="price"> 25,000원 </td>
+            <td> <input type="number" class="quantity" min="0" value="0"/> </td>
+            <td> <input type="text" class="item-total" size= "6" value="0" readonly/> 원</td>
+        </tr>
+        <tr class="order-item" data-price="30000">
+            <td> 네트워크 보안 에센셜(4판) </td> <td class="price"> 30,000원 </td>
+            <td> <input type="number" class="quantity" min="0" value="0"/> </td> 
+            <td> <input type="text" class="item-total" size= "6" value="0" readonly/> 원</td>
+        </tr>
+        <tr class="order-item" data-price="28000">
+            <td> 비즈니스 정보 시스템 </td> <td class="price"> 28,000원 </td>
+            <td> <input type="number" class="quantity" min="0" value="0"/> </td>
+            <td> <input type="text" class="item-total" size= "6" value="0" readonly/> 원</td>
+        </tr>
+        <tr class="order-item" data-price="35000">
+            <td> 회로이론 </td> <td class="price"> 35,000원 </td>
+            <td> <input type="number" class="quantity" min="0" value="0"/> </td>
+            <td> <input type="text" class="item-total" size= "6" value="0" readonly/> 원</td>
+        </tr>
+        <tr class="order-item" data-price="32000">
+            <td> Big Java </td> <td class="price"> 32,000원 </td>
+            <td> <input type="number" class="quantity" min="0" value="0"/> </td> 
+            <td> <input type="text" class="item-total" size= "6" value="0" readonly/> 원</td>
+        </tr>
+        <tr class="order-item" data-price="30000">
+            <td> 경영학의 이해 (9/e) </td> <td class="price"> 30,000원 </td>
+            <td> <input type="number" class="quantity" min="0" value="0"/> </td>
+            <td> <input type="text" class="item-total" size= "6" value="0" readonly/> 원</td>
+        </tr>
+        <tr class="order-item" data-price="27000">
+            <td> 컴퓨터 배움터 </td> <td class="price"> 27,000원 </td>
+            <td> <input type="number" class="quantity" min="0" value="0"/> </td>
+            <td> <input type="text" class="item-total" size= "6" value="0" readonly/> 원</td>
+        </tr>
+        <tr id="total-row">
+            <td> 합계 </td> <td> &nbsp; </td>
+            <td> <input type="text" id="total-quantity" size= "2" value="0" readonly/> </td>
+            <td> <input type="text" id="total-amount" size= "6" value="0" readonly/> 원</td>
+        </tr>
+    </table> <br />
+    <input type="reset" id="reset-button" value="초기화"/> <input type="button" id="order-button" value="주문하기"/> </form>
+<div id="order-output"></div>
+</body>
+</html>

@@ -1,0 +1,714 @@
+/* 기본 설정 */
+:root {
+    --smu-blue: #003E7E; /* 상명대 메인 블루 */
+    --smu-dark: #222222;
+    --smu-gray: #f1f3f8; /* 포털 배경색 */
+    --border-color: #ddd;
+    --text-color: #333;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--smu-gray);
+    min-width: 1000px;
+}
+
+ul, li { list-style: none; padding: 0; margin: 0; }
+a { text-decoration: none; color: inherit; }
+h1, h2, h3 { margin: 0; font-weight: 500; }
+
+/* 상단 유틸리티 바 */
+.top-util-bar {
+    background-color: #fff;
+    border-bottom: 1px solid #e1e1e1;
+    height: 35px;
+    line-height: 35px;
+    font-size: 12px;
+    color: #666;
+}
+.top-util-bar .inner {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.util-links a { margin-left: 10px; }
+
+/* 헤더 & GNB */
+header {
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    height: 80px;
+}
+.header-inner {
+    width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    font-size: 24px;
+    color: var(--smu-blue);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.smu-symbol {
+    background: var(--smu-blue);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.gnb ul { display: flex; gap: 40px; }
+.gnb a {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--smu-dark);
+    padding-bottom: 27px; /* hover border 위치 조정 */
+}
+.gnb li.active a, .gnb a:hover {
+    color: var(--smu-blue);
+    border-bottom: 3px solid var(--smu-blue);
+}
+
+/* 메인 컨텐츠 영역 */
+main {
+    width: 1000px;
+    margin: 30px auto;
+    min-height: 600px;
+}
+.content-container {
+    background: white;
+    padding: 30px;
+    border: 1px solid #e5e5e5;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+/* 배너 그룹 */
+.portal-banner-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.banner-box {
+    flex: 1;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-left: 5px solid var(--smu-blue); /* 포인트 컬러 */
+}
+.banner-box:hover { box-shadow: 0 5px 10px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.banner-box.event { border-left-color: #27ae60; }
+.badge { font-size: 12px; color: white; background: #666; padding: 2px 6px; border-radius: 2px; }
+.badge.new { background: #e74c3c; }
+
+/* 정보 그리드 */
+.info-grid {
+    display: grid;
+    /* 왼쪽(1.2배) 오른쪽(0.8배) 비율 */
+    grid-template-columns: 1.2fr 0.8fr; 
+    gap: 20px;
+    /* [핵심] 레이아웃 정의 
+       왼쪽: 지도(map) -> 달력(cal)
+       오른쪽: 정보(info)가 두 칸을 모두 차지하여 길게 늘어짐 */
+    grid-template-areas:
+        "map info"
+        "cal info";
+}
+/* 1. 지도 영역 (왼쪽 상단) */
+.map-box {
+    grid-area: map;
+    height: 100%;
+}
+.map-frame iframe {
+    width: 100%;
+    height: 250px; /* 지도 높이 고정 */
+    border-radius: 4px;
+}
+
+/* 2. 달력 영역 (왼쪽 하단) */
+.calendar-box {
+    grid-area: cal;
+    height: fit-content;
+}
+
+/* 3. [핵심] 운영 정보 & 트레이너 (오른쪽 전체 - 세로로 길게) */
+.info-text-box {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+/* 내부 디자인 다듬기 */
+.info-list {
+    margin-bottom: 30px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+.info-list li {
+    margin-bottom: 12px;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 5px;
+}
+.info-list li:last-child { border-bottom: none; }
+
+/* 트레이너 프로필 디자인 */
+.trainer-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 20px;
+    
+    margin-top: 10px;    
+}
+
+.photo-box {
+    width: 150px;
+    height: 200px;
+    background: #e1e1e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    flex-shrink: 0;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.profile-text {
+    flex: 1;
+}
+
+.profile-text strong {
+    font-size: 20px;     /* 이름 폰트 키움 (18px -> 20px) */
+    color: var(--smu-blue);
+    display: block;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #ddd; /* 이름 밑에 얇은 줄 추가해 강조 */
+    padding-bottom: 5px;
+}
+
+.profile-text p {
+    font-size: 14px;     /* 본문 폰트 약간 키움 */
+    color: #555;
+    line-height: 1.7;    /* 줄 간격 시원하게 */
+    margin: 0;
+}
+.card { padding: 20px; border: 1px solid #eee; background: #fdfdfd; }
+.card-title {
+    font-size: 16px; border-bottom: 2px solid var(--smu-blue);
+    padding-bottom: 10px; margin-bottom: 15px; display: inline-block;
+}
+.map-frame iframe { width: 100%; height: 275px; }
+.info-list li { margin-bottom: 8px; font-size: 14px; }
+.trainer-profile { display: flex; gap: 15px; margin-top: 10px; }
+.photo-box { width: 80px; height: 100px; background: #ddd; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #777; }
+.mt-20 { margin-top: 20px; }
+
+/* 달력 스타일 */
+.portal-calendar table { width: 100%; border-collapse: collapse; text-align: center; }
+.portal-calendar th { background: #f5f5f5; padding: 8px; font-size: 13px; border: 1px solid #eee; }
+.portal-calendar td { padding: 10px; border: 1px solid #eee; font-size: 13px; }
+.portal-calendar .holiday { color: #e74c3c; background: #fff0f0; font-weight: bold; }
+
+/* 게시판 테이블 */
+.portal-table { width: 100%; border-collapse: collapse; border-top: 2px solid var(--smu-blue); }
+.portal-table th { background: #f9f9f9; padding: 12px; border-bottom: 1px solid #ddd; font-size: 14px; color: #555; }
+.portal-table td { padding: 12px; border-bottom: 1px solid #ddd; text-align: center; font-size: 14px; }
+.portal-table td.t-left { text-align: left; padding-left: 20px; }
+
+/* 가이드 카드 스타일 */
+.guide-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- [수정] 운동 가이드 레이아웃 (영상-설명-근육도) --- */
+.guide-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.guide-card {
+    display: flex;
+    align-items: center; /* 수직 중앙 정렬 */
+    background: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    gap: 25px; /* 요소 간 간격 */
+    transition: 0.2s;
+}
+.guide-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-color: #ccc;
+}
+
+/* 1. 영상 영역 (왼쪽 고정) */
+.video-area {
+    width: 280px;
+    height: 180px;
+    background: #000;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0; /* 크기 줄어들지 않음 */
+    border-radius: 4px;
+}
+.play-icon { font-size: 40px; opacity: 0.8; }
+
+/* 2. 설명 영역 (가운데 - 남은 공간 차지) */
+.text-area {
+    flex: 1; /* 남은 공간 모두 차지 */
+}
+.text-area h3 {
+    margin-bottom: 10px;
+    color: var(--smu-blue);
+    font-size: 18px;
+}
+.text-area .desc {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+.tip-box {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #555;
+    border-left: 3px solid #ffcc00;
+}
+
+/* 3. 근육도 영역 (오른쪽 끝 고정) */
+.muscle-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px; /* 고정 너비 */
+    flex-shrink: 0;
+    text-align: center;
+    padding-left: 20px;
+    border-left: 1px dashed #eee; /* 설명과 구분선 */
+}
+
+.muscle-img {
+    width: 100px;
+    height: 120px;
+    object-fit: contain; 
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fff;
+}
+
+.target-name {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--smu-blue);
+    background: #eaf2ff;
+    padding: 4px 8px;
+    border-radius: 10px;
+}
+/* 로그인 & 마이페이지 */
+.login-container { max-width: 400px; margin: 50px auto; background: white; padding: 40px; border: 1px solid #ddd; text-align: center; }
+.input-group input { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; box-sizing: border-box; }
+.btn-primary { background: var(--smu-blue); color: white; border: none; padding: 12px; cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.3s; }
+.btn-primary:hover { background: #002a5c; }
+.full { width: 100%; }
+
+.dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.dash-card { background: white; border: 1px solid #eee; padding: 25px; }
+.status-badge { background: #eaf2ff; color: var(--smu-blue); padding: 15px; text-align: center; font-weight: bold; border-radius: 8px; margin: 20px 0; }
+.styled-select, .coupon-input-box input { width: 100%; padding: 10px; border: 1px solid #ccc; box-sizing: border-box; }
+.coupon-input-box { display: flex; gap: 5px; margin-top: 5px; }
+.btn-secondary { background: #666; color: white; border: none; padding: 0 15px; cursor: pointer; }
+.price-display { margin-top: 20px; text-align: right; font-size: 18px; border-top: 2px solid #333; padding-top: 15px; }
+.price-display strong { color: #e74c3c; font-size: 24px; }
+
+/* 푸터 */
+footer {
+    background: #333; /* 포털 푸터색과 유사한 다크 그레이 */
+    color: #999;
+    padding: 30px 0;
+    font-size: 12px;
+    border-top: 3px solid var(--smu-blue);
+}
+.footer-inner { width: 1000px; margin: 0 auto; }
+.footer-links { display: flex; gap: 20px; margin-bottom: 15px; font-weight: bold; color: #ccc; }
+address { font-style: normal; line-height: 1.6; }
+
+/* FAQ 아코디언 */
+.accordion { background: #fff; border: 1px solid #ddd; border-bottom: none; padding: 15px; width: 100%; text-align: left; font-weight: bold; cursor: pointer; }
+.accordion:last-of-type { border-bottom: 1px solid #ddd; }
+.active { background: #f0f7ff; color: var(--smu-blue); }
+.panel { padding: 15px; border: 1px solid #ddd; border-top: none; background: #fafafa; font-size: 14px; line-height: 1.6; display: none; }
+
+/* --- 사물함 신청 모달 (팝업) 스타일 --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-box {
+    background: white;
+    padding: 30px;
+    width: 350px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    text-align: center;
+    border-top: 5px solid var(--smu-blue); /* 상명 블루 포인트 */
+}
+
+.modal-box h3 { margin-bottom: 15px; color: #333; }
+.modal-box p { font-size: 14px; color: #666; margin-bottom: 20px; }
+
+.modal-box .input-group input {
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.modal-box .btn-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.modal-box .btn-group button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* 사물함 상태 표시 영역 스타일 (마이페이지 내부) */
+.locker-status-box {
+    background: #f9f9f9;
+    padding: 15px;
+    border: 1px dashed #ccc;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.locker-pw-text {
+    font-size: 20px;
+    color: var(--smu-blue);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* --- [추가] 사물함 선택 그리드 스타일 --- */
+.locker-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5열 배치 */
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.locker-item {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 0;
+    text-align: center;
+    cursor: pointer;
+    font-size: 13px;
+    background: white;
+    transition: 0.2s;
+}
+
+.locker-item:hover {
+    border-color: var(--smu-blue);
+    color: var(--smu-blue);
+}
+
+/* 이미 사용 중인 사물함 */
+.locker-item.occupied {
+    background-color: #eee;
+    color: #aaa;
+    cursor: not-allowed;
+    border-color: #eee;
+}
+
+/* 내가 선택한 사물함 */
+.locker-item.selected {
+    background-color: var(--smu-blue);
+    color: white;
+    border-color: var(--smu-blue);
+    font-weight: bold;
+}
+/* 그룹 정렬 */
+.text-radio-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 글자 사이 간격 */
+}
+
+/* 실제 라디오 버튼(동그라미) 숨기기 */
+.text-radio input[type="radio"] {
+    display: none;
+}
+
+/* 텍스트 라벨 기본 스타일 (선택 안됨) */
+.text-radio .text-label {
+    font-size: 14px;
+    color: #999; /* 회색 */
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.2s;
+}
+
+/* 선택되었을 때 스타일 (강조 효과) */
+.text-radio input[type="radio"]:checked + .text-label {
+    color: var(--smu-blue); /* 파란색 */
+    font-weight: bold;
+    font-size: 15px; /* 약간 커짐 */
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+/* 마우스 올렸을 때 살짝 진하게 */
+.text-radio:hover .text-label {
+    color: #555;
+}
+.text-radio input[type="radio"]:checked + .text-label:hover {
+    color: var(--smu-blue); /* 선택된건 파란색 유지 */
+}
+
+/* 구분선 스타일 (|) */
+.divider {
+    color: #ddd;
+    font-size: 12px;
+    margin-top: -2px;
+}
+
+/* --- [추가] 공지사항 상세 페이지 스타일 --- */
+
+/* 헤더 (제목 영역) */
+.board-view-header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+.view-title {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+.view-meta {
+    font-size: 13px;
+    color: #777;
+    display: flex;
+    gap: 15px;
+}
+.view-meta span::before {
+    content: '|';
+    margin-right: 15px;
+    color: #ddd;
+}
+.view-meta span:first-child::before { content: none; }
+
+/* 본문 영역 */
+.board-view-content {
+    min-height: 300px;
+    padding: 20px 10px;
+    border-bottom: 1px solid #ddd;
+    line-height: 1.8;
+    color: #444;
+}
+.greeting { margin-bottom: 30px; font-size: 16px; }
+
+/* 공지 박스 스타일 */
+.notice-box {
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--smu-blue); /* 상명 블루 포인트 */
+}
+.notice-box h3 { margin-bottom: 10px; font-size: 16px; color: var(--smu-blue); }
+.notice-box ul li { margin-bottom: 5px; }
+
+/* 하단 버튼 */
+.board-btn-group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.btn-list, .btn-register-link {
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #ddd;
+    background: white;
+}
+.btn-register-link {
+    background: var(--smu-blue);
+    color: white;
+    border-color: var(--smu-blue);
+}
+.btn-register-link:hover { background: #002a5c; }
+.btn-list:hover { background: #f9f9f9; }
+
+/* --- [추가] 게시판 리스트(notice.html) 스타일 --- */
+
+/* 상단 검색 영역 */
+.board-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+.search-box {
+    display: flex;
+    gap: 5px;
+}
+.search-box select, .search-box input {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    height: 35px;
+    box-sizing: border-box;
+}
+.btn-search {
+    background: #555;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+    height: 35px;
+}
+
+/* 테이블 스타일 보강 */
+.board-list th { border-top: 2px solid var(--smu-blue); background: #f5f8ff; }
+.board-list td { color: #555; }
+.title-link { color: #333; text-decoration: none; }
+.title-link:hover { text-decoration: underline; color: var(--smu-blue); }
+.new-icon {
+    font-size: 10px; color: white; background: #e74c3c;
+    padding: 1px 4px; border-radius: 2px; margin-left: 5px;
+    vertical-align: middle;
+}
+.notice-tr { background-color: #fdfdfd; font-weight: bold; }
+
+/* 페이징 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 30px;
+}
+.pagination a {
+    display: inline-block;
+    min-width: 30px;
+    height: 30px;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #555;
+    text-decoration: none;
+    font-size: 13px;
+    background: white;
+}
+.pagination a.active {
+    background: var(--smu-blue);
+    color: white;
+    border-color: var(--smu-blue);
+}
+.pagination a:hover:not(.active) {
+    background: #f5f5f5;
+}
+
+/* --- [추가] 운영 안내 상세 페이지 스타일 --- */
+.info-section { margin-bottom: 40px; }
+.info-section h3 { 
+    font-size: 18px; color: var(--smu-blue); 
+    border-left: 4px solid var(--smu-blue); 
+    padding-left: 10px; margin-bottom: 15px; 
+}
+.sub-title { font-size: 15px; margin: 20px 0 10px; color: #333; }
+
+.bullet-list li {
+    margin-bottom: 8px;
+    padding-left: 15px;
+    position: relative;
+    line-height: 1.6;
+}
+.bullet-list li::before {
+    content: '•';
+    position: absolute; left: 0; color: #999;
+}
+.highlight { color: #e74c3c; font-weight: bold; }
+.holiday-text { color: #e74c3c; font-weight: bold; }
+
+/* 테이블 스타일 */
+.center-table th, .center-table td { text-align: center; vertical-align: middle; }
+.center-table th { background: #f5f8ff; border-top: 2px solid var(--smu-blue); }
+
+/* 준비물 박스 그리드 */
+.preparation-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
+.prep-item {
+    background: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+.prep-item strong { display: block; margin-bottom: 5px; color: #333; }
+.prep-item p { margin: 0; font-size: 13px; color: #666; }
+
+/* --- [추가] 공지사항 리스트 호버(Hover) 효과 --- */
+
+/* 1. 행(tr)에 마우스 올렸을 때 배경색 변경 */
+.portal-table tbody tr:hover {
+    background-color: #f0f7ff; /* 연한 파란 배경 */
+    cursor: pointer;
+}
+
+/* 2. [핵심] 마우스 올렸을 때 '글자색'을 파란색으로 변경 */
+.portal-table tbody tr:hover td,
+.portal-table tbody tr:hover a {
+    color: #003E7E;      /* 상명대 파란색 */
+    font-weight: bold;   /* 글씨 굵게 (강조) */
+    text-decoration: underline;
+}
+
+.portal-table tbody tr:hover td:first-child, /* 번호 */
+.portal-table tbody tr:hover td:last-child { /* 날짜 */
+    color: #555;         /* 원래 색 유지 */
+    font-weight: normal; /* 굵기 유지 */
+}

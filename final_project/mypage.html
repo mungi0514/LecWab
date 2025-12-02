@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>마이페이지 - SMU Fitness</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="top-util-bar">
+        <div class="inner">
+            <span><a href="https://portal.smu.ac.kr/p/S00/">상명대학교 천안캠퍼스</a></span>
+            <div class="util-links">
+                <a href="mypage.html">로그인</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-inner">
+            <h1 class="logo"><a href="index.html"><span class="smu-symbol">SMU</span> 상명대학교 체육관</a></h1>
+            <nav class="gnb">
+                <ul>
+                    <li><a href="index.html">시설안내</a></li>
+                    <li><a href="guide.html">운동가이드</a></li>
+                    <li class="active"><a href="mypage.html">마이페이지</a></li>
+                    <li><a href="faq.html">고객센터</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="gray-bg">
+        <section class="login-container" id="login-section">
+            <div class="login-box">
+                <h2>SMU FITNESS LOGIN</h2>
+                <p>학번 또는 아이디로 로그인해주세요.</p>
+                <div class="input-group">
+                    <input type="text" id="userid" placeholder="아이디(학번)">
+                    <input type="password" id="userpw" placeholder="비밀번호">
+                </div>
+                <button onclick="login()" class="btn-primary full">로그인</button>
+            </div>
+        </section>
+
+        <section class="content-container" id="mypage-section" style="display:none;">
+            <div class="dashboard-grid">
+                <div class="dash-card profile-card">
+                    <h3>내 정보</h3>
+                    <div class="user-status">
+                        <p class="user-name"><strong>회원</strong> 님</p>
+                        <p class="user-msg">오늘도 득근하세요!</p>
+                        <button onclick="logout()" style="margin-top:5px; padding: 4px 10px; font-size: 12px; background: #666; color: white; border: none; border-radius: 4px; cursor: pointer;">로그아웃</button>
+                    </div>
+                    
+                    <div class="status-badge" id="days-remaining">
+                        잔여일수 확인 중...
+                    </div>
+                    <div class="locker-area" id="locker-info">
+                        </div>
+                </div>
+
+                <div class="dash-card payment-card">
+                    <h3>수강신청 및 결제</h3>
+                    <div class="form-row">
+                        <label>기간 선택</label>
+                        <select id="month-select" onchange="calculatePrice()" class="styled-select">
+                            <option value="1">1개월 (10,000원)</option>
+                            <option value="2">2개월 (20,000원)</option>
+                            <option value="3" style="color:blue; font-weight:bold;">3개월 (29,000원) [할인]</option>
+                            <option value="4">4개월 (40,000원)</option>
+                            <option value="5" style="color:blue; font-weight:bold;">5개월 (49,000원) [할인]</option>
+                            <option value="6">6개월 (60,000원)</option>
+                            <option value="7">7개월 (70,000원)</option>
+                            <option value="8">8개월 (80,000원)</option>
+                            <option value="9">9개월 (90,000원)</option>
+                            <option value="10">10개월 (100,000원)</option>
+                            <option value="11">11개월 (110,000원)</option>
+                            <option value="12" style="color:red; font-weight:bold;">12개월 (116,000원) [특가]</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label>쿠폰 적용</label>
+                        <div class="coupon-input-box">
+                            <input type="text" id="coupon-code" placeholder="코드 입력">
+                            <button type="button" onclick="applyCoupon()" class="btn-secondary">적용</button>
+                        </div>
+                        <p id="coupon-message" class="msg-text"></p>
+                    </div>
+
+                    <div class="form-row" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px;">
+                        <label style="font-weight:bold; margin: 0;">결제 수단</label>
+                    
+                        <div class="text-radio-group">
+                            <label class="text-radio">
+                                <input type="radio" name="payment-method" value="카드" checked>
+                                <span class="text-label">카드</span>
+                            </label>
+                            
+                            <span class="divider">|</span>
+                            
+                            <label class="text-radio">
+                                <input type="radio" name="payment-method" value="현금">
+                                <span class="text-label">현금</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="price-display">
+                        <span>최종 결제 금액</span>
+                        <strong id="final-price">10,000</strong>원
+                    </div>
+                    
+                    <button onclick="processPayment()" class="btn-primary full mt-20">결제하기</button>
+                </div>
+            </div>
+        </section>
+        <div id="locker-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-box" style="width: 400px;">
+                <h3 style="border-bottom: 2px solid var(--smu-blue); padding-bottom: 10px; margin-bottom: 15px;">사물함 신청</h3>
+                
+                <p style="text-align:left; font-size:14px; font-weight:bold; margin-bottom:5px;">1. 위치 선택</p>
+                <div id="locker-selection-area">
+                    <div id="locker-grid" class="locker-grid">
+                        </div>
+                    <p id="selected-locker-msg" style="font-size: 13px; color: var(--smu-blue); margin-top: 5px; font-weight: bold; height: 20px; text-align:right;">
+                        선택된 사물함: 없음
+                    </p>
+                </div>
+        
+                <div class="input-group" style="margin-top: 15px; text-align:left;">
+                    <label style="font-size:14px; font-weight:bold; display:block; margin-bottom:5px;">2. 이용 기간 선택</label>
+                    <select id="locker-month-select" onchange="calculateLockerPrice()" style="width:100%; padding:8px; border:1px solid #ddd;">
+                        <option value="1">1개월 (5,000원)</option>
+                        <option value="3">3개월 (13,000원) - 할인</option>
+                        <option value="5">5개월 (20,000원) - 할인</option>
+                        <option value="12">12개월 (40,000원) - 특가</option>
+                    </select>
+                </div>
+        
+                <div class="input-group" style="margin-top: 15px; text-align:left;">
+                    <label style="font-size:14px; font-weight:bold; display:block; margin-bottom:5px;">3. 비밀번호 설정 (4자리)</label>
+                    <input type="password" id="locker-pw-input" maxlength="4" placeholder="숫자 4자리 입력" 
+                           style="width:100%; padding:8px; box-sizing:border-box; letter-spacing:3px;"
+                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                </div>
+
+                <div class="input-group" style="margin-top: 15px; display: flex; align-items: center; justify-content: space-between;">
+                    <label style="font-size:14px; font-weight:bold; margin: 0;">4. 결제 수단 선택</label>
+                    
+                    <div class="text-radio-group">
+                        <label class="text-radio">
+                            <input type="radio" name="locker-pay-method" value="카드" checked>
+                            <span class="text-label">카드</span>
+                        </label>
+                        
+                        <span class="divider">|</span>
+                        
+                        <label class="text-radio">
+                            <input type="radio" name="locker-pay-method" value="현금">
+                            <span class="text-label">현금</span>
+                        </label>
+                    </div>
+                </div>
+        
+                <div class="payment-info-box" style="background:#f1f3f8; padding:15px; margin:20px 0; border-radius:4px; text-align:right;">
+                    <span style="font-size:13px; color:#666;">최종 결제 금액</span><br>
+                    <strong id="locker-final-price" style="font-size:20px; color:#e74c3c;">5,000</strong>
+                    <span style="font-size:16px; color:#333;">원</span>
+                </div>
+        
+                <div class="btn-group">
+                    <button onclick="closeLockerModal()" class="btn-secondary">취소</button>
+                    <button onclick="confirmLockerRegister()" class="btn-primary">결제하기</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
